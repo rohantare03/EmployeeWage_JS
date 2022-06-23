@@ -12,14 +12,14 @@
     }
 }
 
-//UC3 : Total Hours with Function
+//UC5 : Employee Wage with Condition
 const IsPartTime = 1;
 const IsFullTime = 2;
 const PartTimeHrs = 4;
 const FullTimeHrs = 8;
 const WagePerHr = 20;
 const WorkingDays = 20;
-
+const MaxHours_In_A_Month = 160;
     
 function WorkingHrs(empCheck)
 {   
@@ -31,13 +31,16 @@ function WorkingHrs(empCheck)
             return FullTimeHrs;
         default:
             return 0;
-        }
+    }
 }
 let TotalEmpHrs = 0;
-for(let day = 0; day < WorkingDays; day++)
+let TotalWorkingDays = 0;
+while(TotalEmpHrs <= MaxHours_In_A_Month && TotalWorkingDays < WorkingDays)
 {
-    let empCheck = Math.floor(Math.random() * 3);
-    TotalEmpHrs += WorkingHrs(empCheck);
+    TotalWorkingDays++;
+    let CheckEmp = Math.floor(Math.random() * 3);
+    TotalEmpHrs += WorkingHrs(CheckEmp);
 }
 let EmpWage = TotalEmpHrs * WagePerHr;
-console.log("Hours: " + TotalEmpHrs + "\nMontly Employee Wage is: " + EmpWage);
+console.log("Total Days: " + TotalWorkingDays + "\nTotal Hours: " + TotalEmpHrs +"\nEmployee Wage is: " + EmpWage);
+
