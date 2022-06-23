@@ -12,27 +12,26 @@
     }
 }
 
-//UC2: Daily Employee Wage with Switch Case
+//UC3 : Total Hours with Function
 const IsPartTime = 1;
 const IsFullTime = 2;
 const PartTimeHrs = 4;
 const FullTimeHrs = 8;
 const WagePerHr = 20;
-
-let empHrs = 0;
-let empCheck = Math.floor(Math.random() * 3);
-switch (empCheck)
+    
+function workingHrs(empCheck)
 {
-    case IsPartTime:
-        empHrs = PartTimeHrs;
-        break;
-    case IsFullTime:
-        empHrs = FullTimeHrs;
-        break;
-    default:
-        empHrs = 0;
-        break;
+    switch (empCheck)
+    {
+        case IsPartTime:
+            return PartTimeHrs;
+        case IsFullTime:
+            return FullTimeHrs;
+        default:
+            return 0;
+    }
 }
+let empCheck = Math.floor(Math.random() * 3);
+let empHrs = workingHrs(empCheck);
 let empWage = empHrs * WagePerHr;
-console.log("Daily Employee Wage : " + empWage);
-
+console.log("Working Hours : " + empHrs + "\tDaily Employee Wage : " + empWage);
