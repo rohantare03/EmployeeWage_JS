@@ -150,4 +150,27 @@ console.log("Full Working Days : " + fullWorkingDays);
 console.log("Part Working Days : " + partWorkingDays);
 console.log("Non Working Days : " + nonWorkingDays);
 
+//UC 10 Object Creation
+let totalEmpHrs=0;
+let totalWorkingDays=0;
+let empDailyHrsAndWageArr=new Array();
+while(totalEmpHrs <=  MaxHours_In_A_Month && totalWorkingDays < WorkingDays)
+{
+    totalWorkingDays++;
+    let empCheck=Math.floor(Math.random() * 3);
+    let empHrs=WorkingHrs(empCheck);
+    totalEmpHrs += empHrs;
+    empDailyHrsAndWageArr.push(
+    {
+        dayNum: totalWorkingDays,
+        dailyHours: empHrs,
+        dailyWage: DailyWages(empHrs),
+        toString()
+        {
+            return "\nDay" +this.dayNum+ "--> Working Hours :"+this.dailyHours+ " " + "And Wage Earned : "+this.dailyWage
+        },
+    });
+}
+console.log("\nUC 10 Showing Daily Hours Worked and Wage Earned: "+empDailyHrsAndWageArr);
+
 
